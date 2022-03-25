@@ -61,7 +61,6 @@ class MedicineCategoryController extends Controller
         }
 
         public function delete_category(Request $request){
-
             try {
                 $delete =  MedicineCategory::destroy($request->dataId);
                 if($delete){
@@ -70,7 +69,6 @@ class MedicineCategoryController extends Controller
                 return response()->json(['error' => "Category Not Deleted Successful"]);
             } catch (Exception $e) {
                 return response()->json(['error' => "Category Not Deleted Successful" .$e->getMessage()]);
-        
             }
         }
             

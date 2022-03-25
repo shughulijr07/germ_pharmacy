@@ -41,8 +41,8 @@
        </div>
    </div>
 
-         {{-- Add Supplier Modal --}}
-         <div class="modal fade" id="add_supplier_modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        {{-- Add Supplier Modal --}}
+        <div class="modal fade" id="add_supplier_modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
             <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
@@ -73,7 +73,7 @@
                     </div>
                 </form>
                 </div>
-            </div>
+             </div>
             </div>
         </div>
         {{-- End of Supplier Modal --}}

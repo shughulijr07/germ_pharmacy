@@ -41,7 +41,6 @@
                                             <input value="{{ $supplier->supplier_phone }}" type="text" name="supplier_phone" class="form-control" id="basicpill-firstname-input">
                                         </div>  
                                     </div>
-                                 
                                 </div>
                                 <center><button class="btn btn-primary btn-lg btn-block" type="submit">Update</button></center>
                             </form>

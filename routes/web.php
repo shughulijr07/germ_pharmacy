@@ -6,6 +6,7 @@ use App\Http\Controllers\MedicineCategoryController;
 use App\Http\Controllers\ShelfController;
 use App\Http\Controllers\SuppliersController;
 use App\Http\Controllers\MedicalStoreController;
+use App\Http\Controllers\PurchaseController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -29,33 +30,32 @@ Route::get('/dashboard', function () {
 
 Route::middleware(['auth'])->group(function () {
 
-    // Medicine Routes
-    Route::post('add-new-medicine', [MedicineController::class, 'add_medicine'])->name('add-new-medicine');
-    Route::get('edit_medicine/{id}', [MedicineController::class, 'edit_medicine'])->name('edit_medicine');
-    Route::put('update_medicine/{id}', [MedicineController::class, 'update_medicine'])->name('update_medicine');
-    
-    // Categories Routes
-    Route::post('medicine_category', [MedicineCategoryController::class, 'medicine_category'])->name('medicine_category');
-    Route::get('edit_category/{id}', [MedicineCategoryController::class, 'edit_category'])->name('edit_category');
-    Route::put('update_category/{id}', [MedicineCategoryController::class, 'update_category'])->name('update_category');
-    Route::post('delete_category', [MedicineCategoryController::class, 'delete_category'])->name('delete_category');
-
-    // Shelf Routes
-    Route::post('medicine_shelf', [ShelfController::class, 'medicine_shelf'])->name('medicine_shelf');
-    Route::get('edit_shelf/{id}', [ShelfController::class, 'edit_shelf'])->name('edit_shelf');
-    Route::put('update_shelf/{id}', [ShelfController::class, 'update_shelf'])->name('update_shelf');
-    Route::post('delete_shelf', [ShelfController::class, 'delete_shelf'])->name('delete_shelf');
-
     // Pages Routes
-    Route::get('/medicines', [PageController::class, 'medicine']);
     Route::get('/medicines', [PageController::class, 'medicine']);
     Route::get('/stock', [PageController::class, 'stock']);
     Route::get('/purchases', [PageController::class, 'purchases']);
     Route::get('/sales', [PageController::class, 'sales']);
     Route::get('/users', [PageController::class, 'users']);
 
+    // Medicine Routes
+    Route::post('add-new-medicine', [MedicineController::class, 'add_medicine'])->name('add-new-medicine');
+    Route::get('edit_medicine/{id}', [MedicineController::class, 'edit_medicine'])->name('edit_medicine');
+    Route::put('update_medicine/{id}', [MedicineController::class, 'update_medicine'])->name('update_medicine');
+    Route::post('delete_medicine', [MedicineController::class, 'delete_medicine'])->name('delete_medicine');
+    
+    // Categories Routes
     Route::get('/show_category', [MedicineCategoryController::class, 'show_category'])->name('show_category');
+    Route::post('medicine_category', [MedicineCategoryController::class, 'medicine_category'])->name('medicine_category');
+    Route::get('edit_category/{id}', [MedicineCategoryController::class, 'edit_category'])->name('edit_category');
+    Route::put('update_category/{id}', [MedicineCategoryController::class, 'update_category'])->name('update_category');
+    Route::post('delete_category', [MedicineCategoryController::class, 'delete_category'])->name('delete_category');
+
+    // Shelf Routes
     Route::get('/show_shelves', [ShelfController::class, 'show_shelves'])->name('show_shelves');
+    Route::post('medicine_shelf', [ShelfController::class, 'medicine_shelf'])->name('medicine_shelf');
+    Route::get('edit_shelf/{id}', [ShelfController::class, 'edit_shelf'])->name('edit_shelf');
+    Route::put('update_shelf/{id}', [ShelfController::class, 'update_shelf'])->name('update_shelf');
+    Route::post('delete_shelf', [ShelfController::class, 'delete_shelf'])->name('delete_shelf');
 
     // Supplier Routes
     Route::get('/show_suppliers', [SuppliersController::class, 'show_suppliers'])->name('show_category');
@@ -70,6 +70,13 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/edit_medical_store/{id}', [MedicalStoreController::class, 'edit_medical_store'])->name('edit_medical_store');
     Route::put('/update_medical_store/{id}', [MedicalStoreController::class, 'update_medical_store'])->name('update_medical_store');
     Route::post('/delete_medical_store', [MedicalStoreController::class, 'delete_medical_store'])->name('delete_medical_store');
+
+    //Purchase Routes
+    Route::post('/add_purchase', [PurchaseController::class, 'add_purchase'])->name('add_purchase');
+    Route::get('/edit_purchase/{id}', [PurchaseController::class, 'edit_purchase'])->name('edit_purchase');
+    Route::put('/update_purchase/{id}', [PurchaseController::class, 'update_purchase'])->name('update_purchase');
+    Route::post('/delete_purchase', [PurchaseController::class, 'delete_purchase'])->name('delete_purchase');
+    Route::post('/delete_all_purchase', [PurchaseController::class, 'delete_all_purchase'])->name('delete_all_purchase');
 });
 
 require __DIR__.'/auth.php';

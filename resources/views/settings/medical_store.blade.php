@@ -84,7 +84,7 @@
                 </div>
             </div>
             </div>
-        {{--End of Confirmation to Delete Category Modal --}}
+        {{--End of Confirmation to Delete Shelf Modal --}}
 
         @section('script')
    

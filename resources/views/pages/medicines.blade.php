@@ -4,11 +4,11 @@
             {{ __('Dashboard') }}
         </h2>
     </x-slot> --}}
-    <div class="row justify-content-end">
+    <div class="row justify-content-end ">
         <button data-bs-toggle="modal" data-bs-target="#add_medicine_modal" class="btn btn-primary w-25 mb-2">Add Medicine</button>
     </div>
         <div class="row">
-            <div class="col-md-12">
+            <div class="col-md-12  shadow">
                     <table id="datatable" class="table table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
                         <thead>
                             <tr>
@@ -30,7 +30,7 @@
                                 <td>{{ $shelves->find($medicine->shelf_id)->shelf_name ?? "" }}</td>
                                 <td>
                                     <a href="{{ route('edit_medicine',$medicine->id) }}" type="submit" class="btn btn-primary btn-sm ">Edit</a>
-                                    <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                                    <button onclick="deleteMedicine({{ $medicine->id }})" class="btn btn-danger btn-sm" title="remove">Delete</button>
                                 </td>
                             </tr>
                             @endforeach
@@ -86,6 +86,29 @@
     </div>
 </div>
 {{-- End of Medicine Modal --}}
+
+    {{-- Confirmation to Delete Medicine Modal --}}
+    <div class="modal fade" id="deleteMed" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title" id="staticBackdropLabel">Delete Supplier</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <p>Are you sure you want to delete this User?</p>
+            <form action="{{ route('delete_medicine') }}" method="post" id="deleteMed">
+                @csrf
+                <input type="hidden" name="delDatasId" id="delet_datasId">
+                <div class="row justify-center w-25"><button type="submit" class="btn btn-danger btn-sm">Yes</button></div>
+            </form>
+        </div>
+        </div>
+    </div>
+    </div>
+    {{--End of Confirmation to Delete Supplier Modal --}}
+
+
 </x-app-layout>
 
 @section('script')

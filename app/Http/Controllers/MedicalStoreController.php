@@ -49,6 +49,7 @@ class MedicalStoreController extends Controller
         }
         }
 
+        
         public function delete_medical_store(Request $request){
             try {
                 $delete =  MedicalStore::destroy($request->dataId);

@@ -116,6 +116,22 @@
                 })
              });
 
+            //  Add Purchase Ajax
+            $(document).ready(function(e) { 
+                $('#add_purchase').ajaxForm({
+                    success: function(data) {
+                        if(data.errors){
+                            toastr.error(data.errors);
+                        }
+                        if(data.success){
+                            toastr.success(data.success);
+                            $('#add_purchase')[0].reset();
+                            location.reload();
+                        }
+                    }
+                })
+             });
+
             //ADD FORMS
 
             //  Shelf Ajax
@@ -255,6 +271,25 @@
              });
 
 
+            //EDIT PURCHASE AJAX MESSAGE 
+            $(document).ready(function(e){
+                 $('#update_purchase_form').ajaxForm({
+                     success: function(data){
+                         if(data.errors){
+                             toastr.error(data.errors);
+                         }
+                         if(data.success){
+                             toastr.success(data.success);
+                             $('#update_purchase_form')[0].reset();
+                            //  location.reload();
+                            window.location.href = '/purchases';
+                         }
+                     }
+                 })
+             });
+
+
+
             //  Delete Category
                     function deleteCategory(cat_id) {
                         //  alert(cat_id);
@@ -351,6 +386,52 @@
                         })
                     });
             //  End of Delete store
+
+            //  Delete medicine
+             function deleteMedicine(medicine_id) {
+                //  alert(cat_id);
+                $('#delet_datasId').val(medicine_id);
+                $('#deleteMed').modal('show');           
+            }
+                    $(document).ready(function(e){
+                        $('#deleteMed').ajaxForm({
+                            success: function(data){
+                                if(data.errors){
+                                    toastr.error(data.errors);
+                                }
+                                if(data.success){
+                                    toastr.success(data.success);
+                                //    $('#deleteStore')[0].reset();
+                                    //  location.reload();
+                                    window.location.href = '/medicines';
+                                }
+                            }
+                        })
+                    });
+            //  End of Delete medicine
+
+            //  Delete purchase
+            function deletePurchase(purchase_id) {
+                //  alert(cat_id);
+                $('#delet_datasId').val(purchase_id);
+                $('#deletePurchase').modal('show');           
+            }
+                    $(document).ready(function(e){
+                        $('#deletePurchase').ajaxForm({
+                            success: function(data){
+                                if(data.errors){
+                                    toastr.error(data.errors);
+                                }
+                                if(data.success){
+                                    toastr.success(data.success);
+                                //    $('#deleteStore')[0].reset();
+                                    //  location.reload();
+                                    window.location.href = '/purchase';
+                                }
+                            }
+                        })
+                    });
+            //  End of Delete purchase
 
         </script>
 

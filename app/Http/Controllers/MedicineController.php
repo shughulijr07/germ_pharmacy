@@ -13,6 +13,10 @@ class MedicineController extends Controller
   
     public function add_medicine(Request $request){
         // remember we will do request validation let focus firt in inserting data
+
+        $rules = [
+            'name' => 'required|string|unique:medicines'
+        ];
        try {
             $data = [
                 'name' => $request->medicine_name,
@@ -42,14 +46,7 @@ class MedicineController extends Controller
     }
 
     public function update_medicine(Request $request, $id){ 
-        try {
-            $rules = [
-                'name' => 'required|string',
-                'category' => 'required|string',
-                'shelf' => 'required|string',
-            ];
-            $request->validate($rules);
-    
+        try {    
             $input = $request->all();
             $medicine = Medicine::find($id);
             $checkData = $medicine->update($input);
@@ -61,5 +58,18 @@ class MedicineController extends Controller
                 return response()->json(['error' => "Something Went Wrong..!!" .$e->getMessage()]);
         }
         }
+
+        public function delete_medicine(Request $request){
+            // dd($request);   
+             try {
+                 $deleteMedicine =  Medicine::destroy($request->delDatasId);
+                 if($deleteMedicine){
+                     return response()->json(['success' => "Medicine Deleted Successful"]);
+                 }
+                 return response()->json(['error' => "Shelf Not Deleted Successful"]);
+             } catch (Exception $e) {
+                 return response()->json(['error' => "Something went wrong..!" .$e->getMessage()]);
+             }
+         }
     }
 

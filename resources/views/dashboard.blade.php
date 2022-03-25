@@ -16,7 +16,6 @@
                 </tr>
                 </thead>
         
-        
                 <tbody>
                 <tr>
                     <td>Tiger Nixon</td>

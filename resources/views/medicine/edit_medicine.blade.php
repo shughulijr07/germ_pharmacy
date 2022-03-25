@@ -1,5 +1,4 @@
 <x-app-layout>
-
     <div class="row justify-content-center">
         <div class="col-lg-8">
             <div class="card">
@@ -26,10 +25,10 @@
                                     <div class="col-lg-6">
                                         <div class="mt-2">
                                             <label for=""></label>
-                                            <select name="category"  class="form-select" name="category">
-                                                <option value="{{ $medicines->category }}">{{ $medicines->category }}</option>
+                                            <select name="category_id"  class="form-select" name="category_id">
+                                                <option value="{{ $medicines->category_id }}">{{ $medicines->category_name }}</option>
                                                     @foreach ($categories as $category) 
-                                                    <option value="{{ $category->category_name }}">{{ $category->category_name }}</option>
+                                                    <option value="{{ $category->category_id }}">{{ $category->category_name }}</option>
                                                     @endforeach
                                                 </select>
                                         </div>  
@@ -46,10 +45,10 @@
                                     <div class="col-lg-6">
                                         <div class="mt-2">
                                             <label for=""></label>
-                                            <select class="form-select" name="shelf">
-                                                <option value="{{ $medicines->shelf }}">{{ $medicines->shelf }}</option>
+                                            <select class="form-select" name="shelf-id">
+                                                <option value="{{ $medicines->shelf_id }}">{{ $medicines->shelf_name }}</option>
                                                     @foreach ($shelves as $shelf) 
-                                                    <option value="{{ $shelf->shelf_name }}">{{ $shelf->shelf_name }}</option>
+                                                    <option value="{{ $shelf->shelf_id }}">{{ $shelf->shelf_name }}</option>
                                                     @endforeach
                                                 </select>
                                         </div>  
