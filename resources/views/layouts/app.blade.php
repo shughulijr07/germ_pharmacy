@@ -288,7 +288,22 @@
                  })
              });
 
-
+                //REMOVE ALL PURCHASE AJAX MESSAGE 
+                $(document).ready(function(e){
+                $('#delete_all_purchase').ajaxForm({
+                    success: function(data){
+                        if(data.errors){
+                            toastr.error(data.errors);
+                        }
+                        if(data.success){
+                            toastr.success(data.success);
+                            $('#delete_all_purchase')[0].reset();
+                            //  location.reload();
+                            window.location.href = '/purchases';
+                        }
+                    }
+                })
+            });
 
             //  Delete Category
                     function deleteCategory(cat_id) {

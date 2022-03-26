@@ -76,7 +76,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/edit_purchase/{id}', [PurchaseController::class, 'edit_purchase'])->name('edit_purchase');
     Route::put('/update_purchase/{id}', [PurchaseController::class, 'update_purchase'])->name('update_purchase');
     Route::post('/delete_purchase', [PurchaseController::class, 'delete_purchase'])->name('delete_purchase');
-    Route::post('/delete_all_purchase', [PurchaseController::class, 'delete_all_purchase'])->name('delete_all_purchase');
+    Route::get('/delete_all_purchase', [PurchaseController::class, 'delete_all_purchase'])->name('delete_all_purchase');
 });
 
 require __DIR__.'/auth.php';

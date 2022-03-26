@@ -25,9 +25,9 @@ class ShelfController extends Controller
                 'shelf_description' => $request->shelf_description,
             ]);
             if($add_shelf){
-                return response()->json(['success' => "Shelf added"]);
+                return response()->json(['success' => "Shelf Added Successful"]);
             }
-               return response()->json(['error' => "Shelf not Added"]);
+               return response()->json(['error' => "Shelf not Added successful"]);
         } catch (Exception $e) {
                 return response()->json(['error' => "Sorry, Something went wrong..!" .$e->getMessage()]);
         }

@@ -25,10 +25,10 @@ class SuppliersController extends Controller
             $insert =  Supplier::create($data); 
 
             if ($insert) {
-                return response()->json(['success' => "Supplier added"]);
+                return response()->json(['success' => "Supplier Added Successful"]);
             }
 
-            return response()->json(['error' => "Supplier not added"]);
+            return response()->json(['error' => "Supplier not Added Successful"]);
        } catch (Exception $e) {
           return response()->json(['error' => "Sorry something went wrong !! " .$e->getMessage()]);
        }
@@ -47,7 +47,7 @@ class SuppliersController extends Controller
         if($checkData){
             return response()->json(['success' => "supplier Updated Successfull"]);
             }
-            return response()->json(['error' => "supplier not Updated"]);
+            return response()->json(['error' => "Supplier not Updated"]);
         } catch (Exception $e) {
                 return response()->json(['error' => "Something Went Wrong..!!" .$e->getMessage()]);
         }

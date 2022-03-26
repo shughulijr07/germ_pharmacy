@@ -66,7 +66,11 @@
                 <div class="row justify-content-center">
                     <div class="col-md-2">
                         <div class="row justify-content-end">
-                            <a  class="btn btn-danger">Remove all</a>
+                            <button form='delete_all_purchase' class="btn btn-danger">Remove all</button>
+
+                            <form action="{{route('delete_all_purchase')}}" method="GET" id="delete_all_purchase">
+                               @csrf
+                            </form>
                         </div>
                     </div>
                     <div class="col-md-3">
@@ -174,6 +178,10 @@
         </div>
     {{--End of Confirmation to Delete Purchase Modal --}}
     
+    
+<script>
+
+</script>
 @section('script')
 
 @endsection

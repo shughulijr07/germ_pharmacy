@@ -54,9 +54,9 @@ class MedicalStoreController extends Controller
             try {
                 $delete =  MedicalStore::destroy($request->dataId);
                 if($delete){
-                    return response()->json(['success' => "store Deleted Successful"]);
+                    return response()->json(['success' => "Store Deleted Successful"]);
                 }
-                return response()->json(['error' => "store Not Deleted Successful"]);
+                return response()->json(['error' => "Store Not Deleted Successful"]);
             } catch (Exception $e) {
                 return response()->json(['error' => "Something went wrong..!" .$e->getMessage()]);
             }

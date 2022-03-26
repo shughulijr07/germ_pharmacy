@@ -31,7 +31,7 @@ class PurchaseController extends Controller
                 return redirect()->back();
                 // return response()->json(['success' => "Purchase added"]);
             }
-                return response()->json(['error' => "medicine not added"]);
+                return response()->json(['error' => "Purchase not added"]);
            } catch (Exception $e) {
               return response()->json(['error' => "Sorry something went wrong !! " .$e->getMessage()]);
            }
@@ -47,7 +47,6 @@ class PurchaseController extends Controller
 
 
 public function update_purchase(Request $request, $id){ 
- 
     try {
         $input = $request->all();
         $purchase = Purchase::find($id);
@@ -55,7 +54,7 @@ public function update_purchase(Request $request, $id){
     if($checkData){
         return response()->json(['success' => "Purhcase Updated Successfull"]);
         }
-        return response()->json(['error' => "Medicine not Updated"]);
+        return response()->json(['error' => "Purchase not Updated"]);
     } catch (Exception $e) {
             return response()->json(['error' => "Something Went Wrong..!!" .$e->getMessage()]);
     }
@@ -67,20 +66,20 @@ public function update_purchase(Request $request, $id){
         if($delete){
             return response()->json(['success' => "Purchase Deleted Successful"]);
         }
-        return response()->json(['error' => "Shelf Not Deleted Successful"]);
+        return response()->json(['error' => "Purchase Not Deleted Successful"]);
     } catch (Exception $e) {
         return response()->json(['error' => "Something went wrong..!" .$e->getMessage()]);
     }
 }
 
   
-public function delete_all_purchase(Request $request,$id){
+public function delete_all_purchase(){
     try {
-        $delete =  Purchase::destroy($request->dataId);
-        if($delete){
+        $delete =  Purchase::where('confirmed', '=', 0)->delete();
+                if($delete){
             return response()->json(['success' => "Purchase Deleted Successful"]);
         }
-        return response()->json(['error' => "Shelf Not Deleted Successful"]);
+        return response()->json(['error' => "Purchase Not Deleted Successful"]);
     } catch (Exception $e) {
         return response()->json(['error' => "Something went wrong..!" .$e->getMessage()]);
     }

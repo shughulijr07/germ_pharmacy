@@ -52,9 +52,9 @@ class MedicineCategoryController extends Controller
 
         try {
         if($check){
-            return response()->json(['success' => "Category Updated Successfull"]);
+            return response()->json(['success' => "Category Updated Successful"]);
             }
-            return response()->json(['error' => "Medicine Category not Updated"]);
+            return response()->json(['error' => "Fail to Update Category!"]);
         } catch (Exception $e) {
                 return response()->json(['error' => "Something Went Wrong..!!" .$e->getMessage()]);
         }
@@ -68,7 +68,7 @@ class MedicineCategoryController extends Controller
                 }
                 return response()->json(['error' => "Category Not Deleted Successful"]);
             } catch (Exception $e) {
-                return response()->json(['error' => "Category Not Deleted Successful" .$e->getMessage()]);
+                return response()->json(['error' => "Something went wrong..." .$e->getMessage()]);
             }
         }
             

@@ -28,10 +28,9 @@ class MedicineController extends Controller
             $insert =  Medicine::create($data); //return true or false
 
             if ($insert) {
-                return response()->json(['success' => "medicine added"]);
+                return response()->json(['success' => "Medicine Added Successful"]);
             }
-
-            return response()->json(['error' => "medicine not added"]);
+            return response()->json(['error' => "Medicine not Added"]);
        } catch (Exception $e) {
           return response()->json(['error' => "Sorry something went wrong !! " .$e->getMessage()]);
        }
@@ -66,7 +65,7 @@ class MedicineController extends Controller
                  if($deleteMedicine){
                      return response()->json(['success' => "Medicine Deleted Successful"]);
                  }
-                 return response()->json(['error' => "Shelf Not Deleted Successful"]);
+                 return response()->json(['error' => "Medicine Not Deleted Successful"]);
              } catch (Exception $e) {
                  return response()->json(['error' => "Something went wrong..!" .$e->getMessage()]);
              }
