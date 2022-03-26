@@ -85,6 +85,7 @@
          <script src="{{ asset('assets/js/jquery.form.min.js') }}"></script>
          <script>
              
+            // Add Medicine Ajax 
             $(document).ready(function(e) { 
                 $('#add-medicine-form').ajaxForm({
                     success: function(data) {
@@ -99,8 +100,10 @@
                     }
                 })
              });
+            //  End of Add Medicine ajaxForm
 
-            //  Category Ajax
+
+            //  Add Category Ajax
              $(document).ready(function(e) { 
                 $('#create_category_form').ajaxForm({
                     success: function(data) {
@@ -115,6 +118,8 @@
                     }
                 })
              });
+              // End Of Add Category Ajax
+
 
             //  Add Purchase Ajax
             $(document).ready(function(e) { 
@@ -131,10 +136,9 @@
                     }
                 })
              });
+            // End Of Add Purchase Ajax
 
-            //ADD FORMS
-
-            //  Shelf Ajax
+            // Add Shelf Ajax
             $(document).ready(function(e) { 
                 $('#create_shelf_form').ajaxForm({
                     success: function(data) {
@@ -149,8 +153,9 @@
                     }
                 })
              });
+            // End Of Add Shelf Ajax
 
-            //  Supplier Ajax
+            // Add Supplier Ajax
             $(document).ready(function(e) { 
                 $('#create_supplier_form').ajaxForm({
                     success: function(data) {
@@ -165,10 +170,11 @@
                     }
                 })
              });
+            // End Of Add Supplier Ajax
 
 
 
-            //  Store Ajax
+            // Add Store Ajax
             $(document).ready(function(e) { 
                 $('#add_medical_store_form').ajaxForm({
                     success: function(data) {
@@ -183,8 +189,9 @@
                     }
                 })
              });
+            // End Of Add Store Ajax
 
-
+            //  Update Category ajax Message
              $(document).ready(function(e){
                  $('#update_category_form').ajaxForm({
                      success: function(data){
@@ -200,7 +207,9 @@
                      }
                  })
              }); 
+            // End Of Update Category ajax Message
 
+            //  Update Shelf ajax Message
              $(document).ready(function(e){
                  $('#update_shelf_form').ajaxForm({
                      success: function(data){
@@ -216,9 +225,9 @@
                      }
                  })
              });
+            // End Of Update Shelf ajax Message
 
-
-             //EDIT MEDICINE AJAX MESSAGE 
+             //Update MEDICINE AJAX MESSAGE 
              $(document).ready(function(e){
                  $('#update_medicine_form').ajaxForm({
                      success: function(data){
@@ -234,9 +243,10 @@
                      }
                  })
              });
+            // End of Update Shelf ajax Message
 
-               //EDIT MEDICINE AJAX MESSAGE 
-               $(document).ready(function(e){
+            //Update Supplier AJAX MESSAGE 
+            $(document).ready(function(e){
                  $('#update_supplier_form').ajaxForm({
                      success: function(data){
                          if(data.errors){
@@ -251,9 +261,9 @@
                      }
                  })
              });
+            //End of Update Supplier AJAX MESSAGE 
 
-
-            //EDIT MEDICINE AJAX MESSAGE 
+            //Update Store AJAX MESSAGE 
             $(document).ready(function(e){
                  $('#update_store_form').ajaxForm({
                      success: function(data){
@@ -269,9 +279,9 @@
                      }
                  })
              });
+            //End of Update Store AJAX MESSAGE 
 
-
-            //EDIT PURCHASE AJAX MESSAGE 
+            //Update PURCHASE AJAX MESSAGE 
             $(document).ready(function(e){
                  $('#update_purchase_form').ajaxForm({
                      success: function(data){
@@ -281,15 +291,15 @@
                          if(data.success){
                              toastr.success(data.success);
                              $('#update_purchase_form')[0].reset();
-                            //  location.reload();
                             window.location.href = '/purchases';
                          }
                      }
                  })
              });
+            //End of Update PURCHASE AJAX MESSAGE 
 
-                //REMOVE ALL PURCHASE AJAX MESSAGE 
-                $(document).ready(function(e){
+            //REMOVE ALL PURCHASE AJAX MESSAGE 
+            $(document).ready(function(e){
                 $('#delete_all_purchase').ajaxForm({
                     success: function(data){
                         if(data.errors){
@@ -304,29 +314,29 @@
                     }
                 })
             });
+            // End of REMOVE ALL PURCHASE AJAX MESSAGE 
 
             //  Delete Category
-                    function deleteCategory(cat_id) {
-                        //  alert(cat_id);
-                        $('#del_dataId').val(cat_id);
-                        $('#deleteCat').modal('show');           
-                    }
+            function deleteCategory(cat_id) {
+                $('#del_dataId').val(cat_id);
+                $('#deleteCat').modal('show');           
+               }
 
-                    $(document).ready(function(e){
-                        $('#deleteCategory').ajaxForm({
-                            success: function(data){
-                                if(data.errors){
-                                    toastr.error(data.errors);
-                                }
-                                if(data.success){
-                                    toastr.success(data.success);
-                                    $('#deleteCategory')[0].reset();
-                                    //  location.reload();
-                                    window.location.href = '/show_category';
-                                }
+                $(document).ready(function(e){
+                    $('#deleteCategory').ajaxForm({
+                        success: function(data){
+                            if(data.errors){
+                                toastr.error(data.errors);
                             }
-                        })
-                    });
+                            if(data.success){
+                                toastr.success(data.success);
+                                $('#deleteCategory')[0].reset();
+                                //  location.reload();
+                                window.location.href = '/show_category';
+                            }
+                        }
+                    })
+                });
             //  End of Delete Category
             
             //  Delete Shelf
@@ -344,8 +354,6 @@
                                 }
                                 if(data.success){
                                     toastr.success(data.success);
-                                    // $('#deleteShelf')[0].reset();
-                                    //  location.reload();
                                     window.location.href = '/show_shelves';
                                 }
                             }
@@ -368,8 +376,6 @@
                                 }
                                 if(data.success){
                                     toastr.success(data.success);
-                                    // $('#deleteShelf')[0].reset();
-                                    //  location.reload();
                                     window.location.href = '/show_suppliers';
                                 }
                             }
@@ -380,7 +386,6 @@
 
             //  Delete store
                 function deleteStore(store_id) {
-                        //  alert(cat_id);
                         $('#del_dataId').val(store_id);
                         $('#deleteStore').modal('show');           
                     }
@@ -393,9 +398,7 @@
                                 }
                                 if(data.success){
                                     toastr.success(data.success);
-                                   // $('#deleteStore')[0].reset();
                                      location.reload();
-                                    // window.location.href = '/show_medical_store';
                                 }
                             }
                         })
@@ -404,7 +407,6 @@
 
             //  Delete medicine
              function deleteMedicine(medicine_id) {
-                //  alert(cat_id);
                 $('#delet_datasId').val(medicine_id);
                 $('#deleteMed').modal('show');           
             }
@@ -416,8 +418,6 @@
                                 }
                                 if(data.success){
                                     toastr.success(data.success);
-                                //    $('#deleteStore')[0].reset();
-                                    //  location.reload();
                                     window.location.href = '/medicines';
                                 }
                             }
@@ -439,8 +439,6 @@
                                 }
                                 if(data.success){
                                     toastr.success(data.success);
-                                //    $('#deleteStore')[0].reset();
-                                    //  location.reload();
                                     window.location.href = '/purchase';
                                 }
                             }
